@@ -1,5 +1,6 @@
 const loginpage = require('../pages/loginPage')
 const productpage = require('../pages/productpage')
+const checkoutpage = require('../pages/checkoutPage')
 const datapage = require('../assets/data')
 
 
@@ -35,14 +36,14 @@ describe('SWAGLABS User Login', function(){
         browser.url('/')
         loginpage.enteruserName(datapage.user_name)
         browser.pause(3000)
-        loginpage.enterpassword(datapage.Pass) 
+        loginpage.enterpassword(datapage.Pass)
         browser.pause(3000)
         loginpage.clickonloginbutton()
         browser.pause(5000)
         browser.deleteAllCookies()
     })
 
-// ──────────────────────────────────────────────────────────────────────────── 1 ──────
+// ──────────────────────────────────────────────────────────────────────────── 2 ──────
 //   ::::::  Product Purchase: :   :    :     :        :       :
 // ──────────────────────────────────────────────────────────────────────────────────────
 
@@ -68,6 +69,37 @@ describe('User Product Purchase', function(){
         productpage.clickdetailspageAddtoCartButton()
         browser.pause(5000)
      })
+
+     it("Varify that Product remove from cart", () =>{
+         productpage.removeProductFromCart()
+         browser.pause(5000)
+     })
+
+     it("Varify that CHECKOUT button is working", () =>{
+        productpage.clickCheckOutButton()
+        browser.pause(5000)
+    })
+})
+
+// ──────────────────────────────────────────────────────────────────────────── 3 ──────
+//   ::::::  CheckOut page Details: :   :    :     :        :       :
+// ──────────────────────────────────────────────────────────────────────────────────────
+
+describe('CheckOut Page details', function(){
+    it("Varify that user information are working", ()=>{
+        checkoutpage.entercheckoutInfoFirstName(datapage.chekout_firstName)
+        checkoutpage.entercheckoutInfoLastName(datapage.chekout_lastName)
+        checkoutpage.entercheckoutInfoPostal(datapage.chekout_Postal)
+        browser.pause(2000)
+        checkoutpage.clickOnCheckoutContinueButton()
+        browser.pause(5000)
+    })
+
+    it("Varify to click on Overview page finish button", () =>{
+        checkoutpage.clickOnOverviewFinishButton()
+        browser.pause(5000)
+    })
+
 })
 
 })
