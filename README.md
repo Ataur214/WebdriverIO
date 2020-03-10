@@ -1,4 +1,4 @@
-To Run the Project:
+ To Run the Project:
 ===================================
 
 To run these scripts follow below steps:
@@ -38,7 +38,7 @@ To run these scripts follow below steps:
 7. Create a basic js file to run the script
 
 *Run Command to setup Project:
----------------
+-----------------------------------
 1. mkdir test
 2. cd test
 3. npm init -y
