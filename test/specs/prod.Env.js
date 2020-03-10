@@ -10,33 +10,11 @@ const datapage = require('../assets/data')
 
 describe('SWAGLABS User Login', function(){
 
-    it("User should not login to SWAGLABS with invalid username", () =>{
-        browser.url('/')
-        loginpage.enterinvalidusername(datapage.test.invaliduser_name)
-        browser.pause(3000)
-        loginpage.enterpassword(datapage.test.Pass)
-        browser.pause(3000)
-        loginpage.clickonloginbutton()
-        browser.pause(5000)
-        
-    })
-
-    it("User should not login to SWAGLABS with invalid Password", () =>{
-        browser.url('/')
-        loginpage.enteruserName(datapage.test.user_name)
-        browser.pause(3000)
-        loginpage.enterinvalidpassword(datapage.test.invalidPass)
-        browser.pause(3000)
-        loginpage.clickonloginbutton()
-        browser.pause(5000)
-        
-    })
-
     it("User should login to SWAGLABS with valid user name and password", () =>{
         browser.url('/')
-        loginpage.enteruserName(datapage.test.user_name)
+        loginpage.enteruserName(datapage.prod.user_name)
         browser.pause(3000)
-        loginpage.enterpassword(datapage.test.Pass)
+        loginpage.enterpassword(datapage.prod.Pass)
         browser.pause(3000)
         loginpage.clickonloginbutton()
         browser.pause(5000)

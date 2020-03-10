@@ -1,3 +1,11 @@
+var baseUrl;
+var environment =require('./test/assets/data')
+if(process.env.SERVER==='test'){
+    baseUrl=environment.test.url;
+}
+if(process.env.SERVER==='prod'){
+    baseUrl=environment.prod.url;
+}
 exports.config = {
     //
     // ====================
@@ -19,6 +27,14 @@ exports.config = {
     specs: [
         './test/specs/**.js'
     ],
+    suites: {
+        test: [
+            './test/specs/testEnv.js'
+        ],
+        prod: [
+            './test/specs/prod.Env.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -88,7 +104,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://www.saucedemo.com/',
+    baseUrl: baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

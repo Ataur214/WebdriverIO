@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/wdio run wdio.conf.js",
-	"result":"allure generate --clean && allure open"
+    "test": "./node_modules/.bin/wdio run wdio.conf.js --suite test",
+    "prod": "./node_modules/.bin/wdio run wdio.conf.js --suite prod",
+	  "result":"allure generate --clean && allure open"
   },
   "keywords": [],
   "author": "",
